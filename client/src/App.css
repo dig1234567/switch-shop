@@ -1,0 +1,259 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+.main {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0px 20px;
+}
+
+.main > header {
+  display: flex;
+  justify-content: center;
+}
+
+.main > header > .nav_btn {
+  width: 75px;
+  height: 35px;
+  background-color: #8a8000;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left: 15px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.main > header > img.logo {
+  width: 200px;
+  margin-right: auto;
+}
+
+.main > nav {
+  border-top: 1px solid #8a8000;
+  border-bottom: 1px solid #8a8000;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.main > nav > ul {
+  display: flex;
+}
+
+.main > nav > ul > li {
+  flex: 1;
+  text-align: center;
+  line-height: 80px;
+  list-style-type: none;
+}
+
+.main > nav > ul > li > .nav_item {
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: bold;
+  color: #000;
+  display: block;
+  position: relative;
+  z-index: 5;
+}
+
+.main > nav > ul > li > .nav_item:hover {
+  background-color: #dcdddd;
+}
+
+.main > nav > ul > li > .nav_item:hover .nav_child {
+  display: block;
+}
+
+.main > nav > ul > li > .nav_item > .text_en {
+  color: #8a8000;
+}
+
+.main > nav > ul > li > .nav_item > .nav_child {
+  display: none;
+  position: absolute;
+  width: 100%;
+}
+
+.main > nav > ul > li > .nav_item > .nav_child > a {
+  background-color: #898000;
+  text-decoration: none;
+  color: #fff;
+  line-height: 20px;
+  font-size: 16px;
+  display: block;
+  padding: 20px;
+  text-align: left;
+}
+
+.main > .content img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/*這是game.html的css*/
+.game_content > p {
+  margin-bottom: 20px;
+  margin-top: -10px;
+}
+
+.game_content > .item {
+  display: flex;
+  gap: 10px;
+}
+
+.item_left {
+  width: 20%;
+}
+
+.item_left > img {
+  width: 100%;
+}
+
+.item_mid {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+
+.item_mid h2 {
+  margin-bottom: auto;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.item_mid p {
+  font-weight: bold;
+  color: #8a8000;
+}
+
+.item_right > .item_title {
+  font-weight: bold;
+  border-bottom: 1px solid #8a8000;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.item_right {
+  width: 40%;
+}
+
+.item_right > .item_child {
+  display: flex;
+}
+
+.item_right > .item_child > .item_child_right {
+  margin-left: auto;
+}
+
+.buy_btn {
+  text-decoration: none;
+  padding: 5px 10px;
+  background-color: #8a8000;
+  color: white;
+  border-radius: 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  display: block;
+}
+
+.price_text {
+  color: #8a8000;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.game_text {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+footer {
+  background-color: #898000;
+}
+
+footer > .footer_wrap {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100px;
+  padding-top: 20px;
+  display: flex;
+}
+
+footer > .footer_wrap > ul {
+  display: flex;
+  gap: 25px;
+  margin-right: auto;
+  list-style-type: none;
+}
+
+footer > .footer_wrap > ul > li > a {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* 這是Shop的CSS*/
+
+form {
+  text-align: center;
+}
+
+form,
+input {
+  border: 2px solid blue;
+}
+
+form,
+label,
+input {
+  margin: 5px;
+  font-size: 20px;
+}
+
+form > button {
+  border: 1px solid red;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 10%;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+/*這是手機板的網頁*/
+@media (max-width: 992px) {
+  .main > nav > ul {
+    flex-direction: column;
+  }
+  .shop_content > .item {
+    flex-direction: column;
+  }
+  .item_left {
+    width: 100%;
+  }
+
+  .item_mid {
+    width: 100%;
+  }
+  .item_right {
+    width: 100%;
+  }
+  .footer_wrap {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
