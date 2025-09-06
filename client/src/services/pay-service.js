@@ -1,8 +1,5 @@
 import axios from "axios";
-const API_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://switch-you-xi-shang-cheng.onrender.com/api/user/pay"
-    : "http://localhost:10000/api/user/pay";
+const API_URL = "https://switch-you-xi-shang-cheng.onrender.com/api/user";
 class PayService {
   // 使用者付款經過的處理
   post(paymentData) {
