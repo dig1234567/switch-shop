@@ -21,7 +21,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
     origin: "https://switch-shop.onrender.com",
-    credentials: true,
   })
 );
 
