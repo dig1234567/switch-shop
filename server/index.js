@@ -18,12 +18,7 @@ mongoose
 app.use(express.static(path.join(__dirname, "../client/build")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  cors({
-    origin: "https://switch-shop.onrender.com",
-  })
-);
-
+app.use(cors());
 // API Router
 app.use("/api/user/pay", payRouter);
 app.use("/api/user", authRouter);
