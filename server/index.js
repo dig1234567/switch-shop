@@ -32,9 +32,13 @@ app.get("/", (req, res) => {
   res.send("歡迎來到首頁....");
 });
 
-//所有非API路由都導向index.html (支援 React Router)
-app.get("/{*splat}", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+// 所有前面沒命中的「非 API」請求才導向 index.html
+app.get("*", (req, res) => {
+  if (!req.path.startsWith("/api")) {
+    res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+  } else {
+    res.status(404).send("Not Found");
+  }
 });
 
 const PORT = process.env.PORT || 8080;
