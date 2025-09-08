@@ -32,8 +32,8 @@ app.get("/", (req, res) => {
   res.send("歡迎來到首頁....");
 });
 
-// 所有前面沒命中的「非 API」請求才導向 index.html
 app.get("*", (req, res) => {
+  // 如果路徑不以 /api 開頭，回傳 React index.html
   if (!req.path.startsWith("/api")) {
     res.sendFile(path.join(__dirname, "../client/build", "index.html"));
   } else {
