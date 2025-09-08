@@ -32,10 +32,10 @@ app.get("/", (req, res) => {
   res.send("歡迎來到首頁....");
 });
 
-app.get("*", (req, res) => {
-  // 如果路徑不以 /api 開頭，回傳 React index.html
-  if (!req.path.startsWith("/api")) {
-    res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+// 與之前版本不同：Express v5 不能用 '*'，必須命名 wildcard
+app.get('/*splat', (req, res) => {
+  if (!req.path.startsWith('/api')) {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
   } else {
     res.status(404).send("Not Found");
   }
