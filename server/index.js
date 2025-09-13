@@ -32,7 +32,7 @@ app.use("/api/user", authRouter);
 app.use(express.static(path.join(__dirname, "../client/build")));
 
 // ✅ React SPA fallback route
-app.get("/*splat", (req, res) => {
+app.get("*", (req, res) => {
   if (!req.path.startsWith("/api")) {
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
   } else {
