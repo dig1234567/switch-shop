@@ -9,10 +9,15 @@ const API_URL =
 
 class AuthService {
   login(email, password) {
-    return axios.post(API_URL + "/login", {
-      email,
-      password,
-    });
+    return (
+      axios.post(API_URL + "/login", {
+        email,
+        password,
+      }),
+      {
+        withCredentials: true, // ⬅️ 這行是關鍵
+      }
+    );
   }
   register(username, email, password) {
     return axios.post(API_URL + "/register", {
