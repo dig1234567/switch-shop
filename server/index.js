@@ -9,9 +9,9 @@ const payRouter = require("./router").pay;
 const app = express();
 
 // ✅ CORS 最先掛上
-app.use(cors({
+app.options("*", cors({
   origin: "https://switch-shop.onrender.com",
-  credentials: true
+  credentials: true,
 }));
 
 // ✅ middleware 再來
