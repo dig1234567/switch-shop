@@ -2,45 +2,45 @@ const cors = require("cors");
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
-const app = express();
 const mongoose = require("mongoose");
 const authRouter = require("./router").auth;
 const payRouter = require("./router").pay;
 
-// Connect to mongodb
+const app = express();
+
+// ✅ CORS 最先掛上
+app.use(cors({
+  origin: "https://switch-shop.onrender.com",
+  credentials: true
+}));
+
+// ✅ middleware 再來
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// ✅ MongoDB
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB 已連接"))
   .catch((err) => console.error("MongoDB 連線失敗", err));
 
-//middleware
-//提供React靜態網頁
-app.use(express.static(path.join(__dirname, "../client/build")));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(
-  cors({
-    origin: "https://switch-shop.onrender.com", // 前端網址要正確！
-    credentials: true,
-  })
-);
-// API Router
+// ✅ API Router（這些都會套用上方的 CORS）
 app.use("/api/user/pay", payRouter);
 app.use("/api/user", authRouter);
 
-app.get("/", (req, res) => {
-  res.send("歡迎來到首頁....");
-});
+// ✅ React 靜態網頁
+app.use(express.static(path.join(__dirname, "../client/build")));
 
-// 與之前版本不同：Express v5 不能用 '*'，必須命名 wildcard
-app.get('/*splat', (req, res) => {
-  if (!req.path.startsWith('/api')) {
-    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+// ✅ React SPA fallback route
+app.get("/*splat", (req, res) => {
+  if (!req.path.startsWith("/api")) {
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
   } else {
     res.status(404).send("Not Found");
   }
 });
 
+// ✅ Server 啟動
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`✅ Server is running on port ${PORT}`);
