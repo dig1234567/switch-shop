@@ -6,7 +6,6 @@ const app = express();
 const mongoose = require("mongoose");
 const authRouter = require("./router").auth;
 const payRouter = require("./router").pay;
-const cors = require("cors");
 
 // Connect to mongodb
 mongoose
