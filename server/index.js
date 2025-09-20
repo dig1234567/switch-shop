@@ -9,10 +9,9 @@ const payRouter = require("./router").pay;
 const app = express();
 
 // ✅ CORS 最先掛上
-app.options(
-  "*",
+app.use(
   cors({
-    origin: "https://switch-shop.onrender.com",
+    origin: "https://switch-shop.onrender.com", // 允許的網域
     credentials: true,
   })
 );
