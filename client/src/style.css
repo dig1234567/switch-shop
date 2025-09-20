@@ -1,0 +1,17 @@
+.profile-container {
+  padding: 3rem;
+  margin-left: 350px;
+  font-size: 1.5rem;
+  max-width: 900px;
+}
+
+/* 螢幕寬度小於700px時 */
+@media (max-width: 750px) {
+  .profile-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    max-width: 95%;
+    font-size: 1.2rem;
+  }
+}
