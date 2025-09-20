@@ -5,6 +5,6 @@
     "install-client": "cd client && npm install",
     "install-server": "cd server && npm install",
     "build": "cd client && npm install && npm run build && cp -r build ../server/public",
-    "start": "cd server && npm install && node index.js"
+    "start": "node server/index.js"
   }
 }
