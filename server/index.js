@@ -31,15 +31,17 @@ app.use("/api/user/pay", payRouter);
 app.use("/api/user", authRouter);
 
 // ✅ React 靜態網頁
-app.use(express.static(path.join(__dirname, "build")));
+// ✅ 靜態檔案（React Build）
+app.use(express.static(path.join(__dirname, "../client/build")));
 
 app.get("*", (req, res) => {
   if (!req.path.startsWith("/api")) {
-    res.sendFile(path.join(__dirname, "build", "index.html"));
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
   } else {
     res.status(404).send("Not Found");
   }
 });
+
 
 // ✅ Server 啟動
 const PORT = process.env.PORT || 8080;
