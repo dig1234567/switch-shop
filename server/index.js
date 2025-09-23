@@ -34,12 +34,8 @@ app.use("/api/user", authRouter);
 // ✅ 靜態檔案（React Build）
 app.use(express.static(path.join(__dirname, "../client/build")));
 
-app.get("/*", (req, res) => {
-  if (!req.path.startsWith("/api")) {
-    res.sendFile(path.join(__dirname, "../client/build/index.html"));
-  } else {
-    res.status(404).send("Not Found");
-  }
+app.get(/^(?!\/api).*/, (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 
 
