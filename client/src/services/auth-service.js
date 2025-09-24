@@ -3,8 +3,9 @@ import axios from "axios";
 
 const API_URL =
   process.env.NODE_ENV === "production"
-    ? "https://switch-you-xi-shang-cheng.onrender.com/api/user"
+    ? "https://switch-shop-1.onrender.com/api/user" // ← 改成你的正確後端網址
     : "http://localhost:10000/api/user";
+
 
 class AuthService {
   login(email, password) {
