@@ -128,7 +128,7 @@ const ShopComponent = ({ currentUser, setCurrentUser }) => {
           <p style={{ fontSize: "1.5rem" }}>您購買的是：</p>
           <p>商品名稱：{product.name}</p>
           <p>價格：{product.price}</p>
-          <button onClick={() => navigate("/")}>回到首頁</button>
+          <button style={{ fontWeight: "bold" }} onClick={() => navigate("/")}>回到首頁</button>
         </div>
 
         <form onSubmit={handleSubmit}>
