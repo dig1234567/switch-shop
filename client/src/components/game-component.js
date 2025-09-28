@@ -209,7 +209,9 @@ const GameComponent = ({ currentUser, setCurrentUser }) => {
         <div class="footer_wrap">
           <ul>
             <li>
-              <a href="#">Facebook</a>
+              <a href="https://www.facebook.com/zhang.wen.jie.95155?locale=zh_TW">
+                Facebook
+              </a>
             </li>
             <li>
               <a href="#">Twitter</a>
