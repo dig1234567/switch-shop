@@ -39,7 +39,7 @@ function LoginComponent({ currentUser, setCurrentUser }) {
   return (
     <div style={styles.container}>
       {message && <div className="alert alert-danger">{message}</div>}
-      <h2>登入</h2>
+      <h2>登入帳密</h2>
       <form style={styles.form}>
         <input
           type="email"
