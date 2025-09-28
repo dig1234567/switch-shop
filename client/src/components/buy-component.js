@@ -110,3 +110,4 @@ const BuyComponent = ({ currentUser, setCurrentUser }) => {
 };
 
 export default BuyComponent;
+
