@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import img1 from "../img/1.png";
 import imgC0 from "../img/C0.jpg";
 import img7 from "../img/7.png";
+import img8 from "../img/8.jpg";
 import Mario from "../design/chara_mario.png";
 import authService from "../services/auth-service";
 const GameComponent = ({ currentUser, setCurrentUser }) => {
@@ -39,6 +40,12 @@ const GameComponent = ({ currentUser, setCurrentUser }) => {
     id: 103,
     name: "萬貓的慶典+福爾摩斯大對決",
     price: 1510,
+  };
+
+  const product3 = {
+    id: 104,
+    name: "超級瑪利歐兄弟U",
+    price: 1400,
   };
 
   const handleBuy = (item) => {
@@ -203,6 +210,30 @@ const GameComponent = ({ currentUser, setCurrentUser }) => {
               </div>
             </div>
           </div>
+          <div class="item">
+            <div class="item_left">
+              <img src={img8} alt="" />
+            </div>
+            <div class="item_mid">
+              <h2>超級瑪利歐兄弟U豪華版</h2>
+              <p>建議售價:1400</p>
+            </div>
+            <div class="item_right">
+              <div class="item_title">
+                <div class="price_text">商品說明</div>
+              </div>
+              <div class="item_child">
+                <div class="item_child_left">
+                  <div class="game_text">同捆方案/特價1300</div>
+                </div>
+                <div class="item_child_right">
+                  <a onClick={() => handleBuy(product3)} class="buy_btn">
+                    立即購買
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <footer>
@@ -231,3 +262,4 @@ const GameComponent = ({ currentUser, setCurrentUser }) => {
 };
 
 export default GameComponent;
+
